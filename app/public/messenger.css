@@ -24,6 +24,13 @@ src: local('Open Sans Light'), local('OpenSans-Light'), url(IndieFlower.ttf) for
 .xte:hover{}
 .basic{width:30% !important; }
 .md-char-counter{color:#3F51B5 !important;}
-
-
+.md-right{
+	background-color:#4d4d4d !important;
+}
+.md-left{
+	background-color: #527a7a !important;
+}
+.md-ink-bar{
+	background-color: lime !important;
+}
 

@@ -1,16 +1,19 @@
-angular.module('xte')
+angular
+  .module('xte')
   .controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.toggleRight = buildToggler('right');
     $scope.isOpenRight = function(){
       return $mdSidenav('right').isOpen();
     };
+
     /**
      * Supplies a function that will continue to operate until the
      * time is up.
      */
     function debounce(func, wait, context) {
       var timer;
+
       return function debounced() {
         var context = $scope,
             args = Array.prototype.slice.call(arguments);
@@ -21,6 +24,7 @@ angular.module('xte')
         }, wait || 10);
       };
     }
+
     /**
      * Build handler to open/close a SideNav; when animation finishes
      * report completion in console
@@ -35,6 +39,7 @@ angular.module('xte')
           });
       }, 200);
     }
+
     function buildToggler(navID) {
       return function() {
         // Component lookup should always be available since we are not using `ng-if`
@@ -53,6 +58,7 @@ angular.module('xte')
         .then(function () {
           $log.debug("close LEFT is done");
         });
+
     };
   })
   .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
@@ -63,39 +69,4 @@ angular.module('xte')
           $log.debug("close RIGHT is done");
         });
     };
-  })
-
-
-  .controller('BasicDemoCtrl', DemoCtrl);
-
-
-  
-  function DemoCtrl ($timeout, $q) {
-    var self = this;
-    self.readonly = false;
-    // Lists of fruit names and Vegetable objects
-    self.fruitNames = ['Apple', 'Banana', 'Orange'];
-    self.roFruitNames = angular.copy(self.fruitNames);
-    self.editableFruitNames = angular.copy(self.fruitNames);
-    self.tags = [];
-    self.vegObjs = [
-      {
-        'name' : 'Broccoli',
-        'type' : 'Brassica'
-      },
-      {
-        'name' : 'Cabbage',
-        'type' : 'Brassica'
-      },
-      {
-        'name' : 'Carrot',
-        'type' : 'Umbelliferous'
-      }
-    ];
-    self.newVeg = function(chip) {
-      return {
-        name: chip,
-        type: 'unknown'
-      };
-    };
-}
+  });

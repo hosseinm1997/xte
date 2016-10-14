@@ -22,6 +22,7 @@
 
 
 
+
 </head>
 <body ng-app="xte"> 
 
@@ -40,8 +41,8 @@
       <%  include  messenger.html %>
       </md-tab>
       <md-tab label="loading"><% include loading.html %></md-tab>
-      <md-tab label="xte-wide-messages"></md-tab>
-      <md-tab label=""></md-tab>
+      <md-tab label="xte-wide-messages"><% include xte-wide-messages.html %></md-tab>
+      <md-tab label="FAQ"></md-tab>
 
    </md-tabs>
  </md-content>
@@ -57,11 +58,13 @@
  <script type="text/javascript" src="angular-aria.min.js"></script>
  <script src="angular-messages.min.js"></script>
  <script src="svg-assets-cache.js"></script>
- <script src="angular-material.js"></script> 
+ <script src="angular-material.js"></script>
  <script src="socket.io.js"></script>
+ <script src="app.js"></script>
  <script src="socket-c.js"></script>
  <script src="basic.js"></script>
- <script src="index.js"></script> 
+ <script src="xte-wide-messages.js"></script>
+ 
 
 
 

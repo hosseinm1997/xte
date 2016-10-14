@@ -49,7 +49,7 @@ module.exports = (function() {
     // Messages
     api.route('/messages')
    .post(function(request, response) {
-    
+
         // Validation
         if(!validate(
             [request.body.sender, request.body.text],
@@ -59,14 +59,13 @@ module.exports = (function() {
         guys.check_exist(request.body.sender, function(exist){
             if(!exist){return response.json({status:3, error:'User(sender) doesn\'t exist'})}
 
-            // Powerfull XBOT runs here
-            xbot(request.body.sender, request.body.text);
-
             // Emit new message to users
             //io.emit('message', {status:0, data:request.body});
 
     		messages.create(request.body, function(error, results){
     			response.json({status:0, data:results});
+                // Powerfull XBOT runs here
+                xbot(request.body.sender, request.body.text);
     		});
 
         });
