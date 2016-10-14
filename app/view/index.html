@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angularjs and angularMaterial</title>
+	
+	<link rel="stylesheet" href="angular-material.css">
+  <link rel="stylesheet" href="docs.css">
+  <link rel="shortcut icon" href="xte.png"> 
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="messenger.css">
+  <link rel="stylesheet" href="loading.css">
+ 
+
+
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+ 
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet"> 
+
+
+
+
+</head>
+<body ng-app="xte"> 
+
+
+  <div ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Home">
+        <%  include home.html  %>
+      </md-tab>
+
+      <md-tab label="Blog">
+       <% include blog.html  %>
+     </md-tab>
+      <md-tab label="Messenger"> 
+      <%  include  messenger.html %>
+      </md-tab>
+      <md-tab label="loading"><% include loading.html %></md-tab>
+      <md-tab label="xte-wide-messages"></md-tab>
+      <md-tab label=""></md-tab>
+
+   </md-tabs>
+ </md-content>
+ </div> 
+
+ <br><br>
+
+
+ <script src="angular.js"></script> 
+ <script type="text/javascript" src="angular-animate.min.js"></script>
+
+ <script src="angular-route.min.js"></script>
+ <script type="text/javascript" src="angular-aria.min.js"></script>
+ <script src="angular-messages.min.js"></script>
+ <script src="svg-assets-cache.js"></script>
+ <script src="angular-material.js"></script> 
+ <script src="socket.io.js"></script>
+ <script src="socket-c.js"></script>
+ <script src="basic.js"></script>
+ <script src="index.js"></script> 
+
+
+
+
+
+
+</body>
+</html>

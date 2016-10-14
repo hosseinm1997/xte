@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angularjs</title>
+		<link rel="stylesheet" href="angular-material.min.css">
+		<script src="angular.min.js"></script>
+		<script src="angular-messages.min.js"></script>
+		<script src="angular-material.min.js"></script>
+		<script src="angular-animate.min.js"></script>
+		<script src="angular-aria.min.js"></script>
+		<script src="jquery.min.js"></script>
+		
+	  <script language="javascript"> angular .module('firstApplication', ['ng Material']) .controller('message Ctrl', ['$scope', '$http', function(scope, http){	http.get('/api/messages').then(function(response){	scope.messages=response.data	}).then(function(error){}) }]); </script>	</head>	<body ng-app="firstApplication">	<ul ng-controller='messageCtrl'>	<li ng-repeat='m in messages'>	<h5>{{m.sender}}</h5>	<h3>{{m.text}}</h3>	</li>	</ul>
+	<!--  
+	  <div id="inputContainer" class="inputDemo" ng-controller="messageCtrl as message" ng-cloak>
+	     <md-content layout-padding>
+	        <form name="projectForm">
+	           <md-input-container class="md-block">
+	              <label>User Name</label>
+	              <input required name="userName" ng-model="project.userName">
+	              <div ng-messages="projectForm.userName.$error">
+	                 <div ng-message="required">This is required.</div>
+	              </div>
+	           </md-input-container>
+	           <md-input-container class="md-block">
+	              <label>{{messages.text}}</label>
+	              <input required type="email" name="userEmail" ng-model="project.userEmail"
+	                 minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+	              <div ng-messages="projectForm.userEmail.$error" role="alert">
+	                 <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+	                    Your email must be between 10 and 100 characters long and should be a valid email address.
+	                 </div>
+	              </div>
+	           </md-input-container>
+	           <button ng-click='message.send();'>Send</button>
+	           <md-input-container class="md-block">
+	              <input md-maxlength="300" required name="comments" ng-model="project.comments">
+	              <div ng-messages="projectForm.comments.$error">
+	                 <div ng-message="required">This is required.</div>
+	                 <div ng-message="md-maxlength">The comments has to be less than 300 characters long.</div>
+	              </div>
+	           </md-input-container>     
+	        </form>
+	     </md-content>
+	  </div> -->
+	</body>
+</html>

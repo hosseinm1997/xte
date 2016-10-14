@@ -1,0 +1,29 @@
+@font-face {
+font-family: 'IndieFlower';
+font-style: normal;
+font-weight: 45;
+src: local('Open Sans Light'), local('OpenSans-Light'), url(IndieFlower.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Bungee Inline';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bungee Inline'), local('BungeeInline-Regular'), url('BungeeInline-Regular.ttf') format('ttf');
+
+}
+
+.name{width:100% !important;font-family: Bungee Inline !important;}
+.name:hover{}
+.fullname2{}
+.button-messenger{background-color: #0084FF !important;width:30% !important;text-align:center !important;}
+.button-mes{}
+.md-button{border:1px solid !important;}
+.our-group{font-family:Roboto !important;font-size:260px;text-align:center;color:black;}
+.xte{border-radius:50% !important;border:2px solid #8a8a5c;margin-top:26% !important;font-family:Abhaya Libre !important;}
+.xte:hover{}
+.basic{width:30% !important; }
+.md-char-counter{color:#3F51B5 !important;}
+
+
+
