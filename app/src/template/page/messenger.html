@@ -1,0 +1,46 @@
+<div id='messenger_wrapper'>
+	<div id='online_guys' class='col-sm-3 hidden-xs'>
+		<div id='og-title'>
+			<div class='og-img col-md-1 hidden-sm'></div>
+			<p class='col-md-10 col-sm-12' ng-hide='online_guys.length<1'>{{online_guys.length}} Online Guys</p>
+			<p class='col-md-10 col-sm-12' ng-show='online_guys.length<1'>Nobody is online</p>
+		</div>
+		<br>
+		<ul id='og-list'>
+			<li ng-show='online_guys.length<1'>[Just you]</li>
+			<li ng-repeat='og in online_guys' ng-click='app.mention(og.fullname)'>{{og.fullname}}</li>
+		</ul>
+	</div>
+	<div id='messenger' class='col-sm-9 col-xs-12'>
+		<div id='ms-title'>
+			<div class='notif'>
+				<span class='typing' ng-if='who_is_typing'>{{who_is_typing}} is typing ... </span> 
+			</div>
+			<div class='online_guys visible-xs'>
+				<div ng-click='app.og_alert()' class='og-img left col-md-1'></div>
+				<p class='og-text visible-xs'>{{online_guys.length}}</p>
+			</div>
+			<p ng-click='app.relogin(username)' class='fullname'>
+			{{username}}
+			<span ng-if='status=="offline"||!online'>[offline]</span>
+			</p>
+		</div>
+		<div id='ms-list' ng-init='app.set_events'>
+			<ul>
+				<li>
+					<center ng-if='!no_message'><h4>Loading ...</h4></center>
+					<center ng-if='no_message'><h4>No more message sent</h4></center>
+				</li>
+				<li ng-repeat='ms in messages | reverse' ng-class='{"me":(ms.sender==username)}' ng-repeat-end='app.ms_scroll()'>
+					<p class='sender' ng-class='{"online":(u.find(online_guys, {fullname: ms.sender}))}'>
+					{{ms.sender}}</p>
+					<p class='text' ng-bind-html='ms.text'></p>
+				</li>
+			</ul>
+		</div>
+		<div id='ms-text'>
+			<input id='message_textbox' type='text' placeholder='Type here ...' ng-model='text_message' ng-enter='app.send_message({sender:username, text:text_message}); text_message=""' class='col-xs-12' ng-change='app.is_typing()' autofocus />
+			<input type='button' value='Send' class='link-btn' ng-click='app.send_message({sender:username, text:text_message}); text_message=""' />
+		</div>
+	</div>
+</div>

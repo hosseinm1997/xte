@@ -1,4 +1,4 @@
-angular.module("xte", ["ngRoute", "ngSanitize", 'templates'])
+angular.module("xte", ["ngRoute", "ngSanitize", "template"])
 .config(function($routeProvider) {
     $routeProvider
     .when("/login", {
@@ -124,7 +124,7 @@ angular.module("xte", ["ngRoute", "ngSanitize", 'templates'])
 
 	socket.on('message', function(response){
 		if(response.data.sender==scope.messages[0].sender){
-			scope.messages[0].text += `<hr>${response.data.text}`
+			scope.messages[0].text += '<hr>' + response.data.text
 			if(!scope.$$phase) scope.$apply()
 		} else {
 			scope.messages.unshift(response.data)
@@ -174,7 +174,7 @@ angular.module("xte", ["ngRoute", "ngSanitize", 'templates'])
 		if(!fullname){
 			swal({
 				title: 'Login',
-				text: `Fullname is required`,
+				text: 'Fullname is required',
 				animation: false,
 				confirmButtonText: 'OK',
 	  			confirmButtonClass: 'link-btn'
@@ -188,7 +188,7 @@ angular.module("xte", ["ngRoute", "ngSanitize", 'templates'])
 					case 2:
 						swal({
 							title: 'Login',
-							text: `Another user with same name was logged in, try another name or wait for that user logout.`,
+							text: 'Another user with same name was logged in, try another name or wait for that user logout.',
 							animation: false,
 							confirmButtonText: 'OK',
 				  			confirmButtonClass: 'link-btn'
@@ -196,11 +196,11 @@ angular.module("xte", ["ngRoute", "ngSanitize", 'templates'])
 					    break;
 				}
 				return }
-			document.cookie = `fullname=${fullname}; path=/`
+			document.cookie = 'fullname=' + fullname + '; path=/'
 			scope.username = scope.u.getCookie('fullname');
 			result.data.data.messages.forEach( function(message, i) {
 				if(i > 0 && result.data.data.messages[i-1].sender == message.sender) {
-					scope.messages[scope.messages.length-1].text = `${message.text}<hr>` + scope.messages[scope.messages.length-1].text
+					scope.messages[scope.messages.length-1].text = message.text + '<hr>' + scope.messages[scope.messages.length-1].text
 				} else {
 					scope.messages.push(message);
 				}
@@ -233,16 +233,16 @@ angular.module("xte", ["ngRoute", "ngSanitize", 'templates'])
 			cancelButtonClass: 'link-btn',
 			confirmButtonText: 'Yes!'
 		}).then(function () {
-			document.cookie = `fullname=; path=/`
+			document.cookie = 'fullname=; path=/'
 			this.logout(fullname);	
 		})
 	}
 
 	this.mention = function(user){
 		scope.text_message = scope.text_message? scope.text_message:''
-		if(scope.text_message.search(`@${user}`)==-1) {
-			scope.text_message = `@${user} ${scope.text_message}`
-		} else { scope.text_message = scope.text_message.replace(`@${user}`, '').trim(); }
+		if(scope.text_message.search('@' + user)==-1) {
+			scope.text_message = '@' + user + ' ' + scope.text_message
+		} else { scope.text_message = scope.text_message.replace('@' + user, '').trim(); }
 		$("#message_textbox").focus();
 	}
 
@@ -260,11 +260,11 @@ angular.module("xte", ["ngRoute", "ngSanitize", 'templates'])
 	this.og_alert = function(){
 		var guys='';
 		scope.online_guys.forEach(function(guy, i){
-			guys += `<li class='md-text'>${guy.fullname}</li>`
+			guys += '<li class="md-text">' + guy.fullname + '</li>'
 		})
 		swal({
 			title: 'Online Guys',
-			text: `<hr><ul class='og-list'>${guys}</ul>`,
+			text: '<hr><ul class="og-list">' + guys + '</ul>',
 			animation: false,
 			confirmButtonText: 'Close',
   			confirmButtonClass: 'link-btn'
@@ -291,7 +291,7 @@ angular.module("xte", ["ngRoute", "ngSanitize", 'templates'])
 					}
 					result.data.data.forEach(function(message, i){
 						if(i > 0 && result.data.data[i-1].sender == message.sender){
-							scope.messages[scope.messages.length-1].text = `${message.text}<hr>` + scope.messages[scope.messages.length-1].text
+							scope.messages[scope.messages.length-1].text = message.text + '<hr>' + scope.messages[scope.messages.length-1].text
 						} else { scope.messages.push(message); }
 					});
 					lock_scroll_end = false

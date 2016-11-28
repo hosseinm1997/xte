@@ -1,0 +1,45 @@
+#messenger_wrapper { width: 100%; height: 100%; overflow: auto; }
+
+.og-img { background: url('/og.png') no-repeat center center; background-size: contain; }
+#online_guys { display: flex; flex-flow: column; height: 100%; padding: 12px; background: #eee; overflow-y: hidden; }
+#og-title { white-space: nowrap; }
+#og-title > div.og-img { width: 37px; height: 57px; }
+#og-title > p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 27px; margin-top: 12px; }
+#og-list, .og-list { margin: -12px; padding: 12px; overflow-x: hidden; overflow-y: auto; white-space: nowrap; text-overflow: ellipsis; font-size: 20px; list-style: none; }
+#og-list > li, .og-list > li { margin-top: 7px; cursor: pointer; }
+#og-list > li:hover, .og-list > li:hover { font-weight: bold; }
+
+#messenger { display: flex; flex-flow: column; height: 100%; padding: 0; background: #fff; }
+#ms-title { display: flex; position: relative; background: #fff; padding: 7px 17px; text-align: center; border-bottom: 1px solid #eee; }
+#ms-title > p.fullname {  flex: 1; left: 50%; right: 50%; font-size: 27px; cursor: pointer;  white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+/*#ms-title > .left { position: absolute; top: 7px; }*/
+#ms-title > div.notif { position: absolute; top: 53px; left: 0; right: 0; padding: 12px; text-align: center; }
+#ms-title > div.notif > span.typing { font-size: 17px; color: #aaa; padding: 7px; text-align: center; background: rgba(0, 0, 0, .05); border-radius: 27px; }
+#ms-title > .online_guys { width: 97px; }
+#ms-title > .online_guys > div.og-img { float: left; width: 37px; height: 37px; cursor: pointer; }
+#ms-title > .online_guys > p.og-text { text-align: left; margin-left: 50px; font-size: 27px; }
+
+#ms-list { flex: 1; overflow-x: hidden; overflow-y: auto; }
+#ms-list > .notxt { font-size: 27px; text-align: center; color: #777; margin-top: 37px; }
+#ms-list > ul { list-style: none; padding: 37px; }
+#ms-list > ul > li > p.sender { margin: 0; }
+#ms-list > ul > li > p.sender:before { content: '  '; font-size: 22px; }
+#ms-list > ul > li > p.sender.online:before { content: ' ● '; font-size: 22px; color: #34ff42; }
+#ms-list > ul > li > p.text { display: inline-block; padding: 3px; padding-left: 27px; max-width: 70%; padding-right: 27px; font-size: 22px; background: #0084ff; color: #fff; border-radius: 27px; text-overflow: ellipsis; overflow: hidden; }
+#ms-list > ul > li > p.text > hr { border-color: #fff; opacity: .1; margin: 7px 0; }
+#ms-list > ul > li.me { text-align: right; }
+#ms-list > ul > li.me > p.sender { visibility: hidden; }
+#ms-list > ul > li.me > p.text { background: #eee; color: #333; }
+#ms-list > ul > li.me > p.text > hr { border-color: #777 }
+#ms-list > #ms-fab { position: absolute; font-size: 27px; width: 47px; height: 47px; right: 37px; bottom: 67px; border-radius: 97px; background: #eee; }
+
+#ms-text { position: relative; bottom: 0; padding: 7px; border-top: 1px dashed #ddd; background: rgba(255, 255, 255, 1);  }
+#ms-text > input[type='text'] { font-size: 22px; border: none; }
+#ms-text > input[type='button'] { position: absolute; top: 0; bottom: 0;  right: 17px; font-size: 22px; }
+
+
+@media(max-width:767px) {
+	#ms-title { text-align: right; }
+	/*#ms-list > ul > li > p.text { max-width: 270px; }*/
+	#ms-text > input[type='text'] { padding-top: 7px; padding-bottom: 7px; }
+}

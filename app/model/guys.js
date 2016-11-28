@@ -2,9 +2,6 @@
 // Requires
 var cnf = process.env.NODE_ENV == 'test' ? 'test/' : ''; // Relative config path
 var database = require(`../${cnf}config/database`); // Connect test database if NODE_ENV is `test`
-var express = require('express');
-var server = require('http').createServer(express);
-var io = require('socket.io')(server); server.listen(7625);
 // ----------------------------------------------------------
 
 // Exports
@@ -14,9 +11,8 @@ this.create = function(guy, callback){
 	  values: {fullname: guy}
 	},
 	function (error, results, fields) {
-		io.emit('guyOn', {status:0, data:{fillname:guy}});
-		callback(error, results);
-	});
+		if(typeof callback=='function') return callback(error, results)
+	})
 }
 
 this.read = function(callback){
@@ -25,8 +21,8 @@ this.read = function(callback){
 	  values: ['fullname']
 	},
 	function (error, results, fields) {
-		callback(error, results);
-	});
+		if(typeof callback=='function') return callback(error, results)
+	})
 }
 
 this.delete = function(guy, callback){
@@ -35,9 +31,8 @@ this.delete = function(guy, callback){
 	  values: guy
 	},
 	function (error, results, fields) {
-		io.emit('guyOff', {status:0, data:{fillname:guy}});
-		callback(error, results);
-	});
+		if(typeof callback=='function') return callback(error, results)
+	})
 }
 
 this.check_exist = function(guy, callback){
@@ -46,8 +41,8 @@ this.check_exist = function(guy, callback){
 	  values: ['fullname', guy]
 	},
 	function (error, results, fields) {
-		if(results.length>0){return callback(true);}
-		return callback(false);
-	});
+		if(results.length>0 && typeof callback=='function'){return callback(true);}
+		if(typeof callback=='function') return callback(false)
+	})
 }
 // ----------------------------------------------------------

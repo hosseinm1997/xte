@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "sudo nodemon app/server.js",
-    "test": "sudo mocha $(find app/test -name '*test.js')" 
+    "test": "sudo mocha $(find app/test -name '*test.js') -R spec"
   },
   "author": "Mohammad Mahdi Meraji",
   "license": "MIT",
@@ -16,9 +16,30 @@
     "chai-http": "^3.0.0",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.1",
+    "gulp-flatten": "^0.3.1",
+    "gulp-html2js": "^0.4.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-inline-source": "^3.0.0",
+    "gulp-minify": "0.0.14",
+    "gulp-util": "^3.0.7",
     "mocha": "^3.1.1",
     "mysql": "^2.11.1",
+    "node-telegram-bot-api": "^0.24.0",
+    "nodejs-websocket": "^1.7.1",
+    "querystring": "^0.2.0",
+    "require-dir": "^0.3.1",
+    "serve-favicon": "^2.3.2",
     "socket.io": "^1.5.0",
-    "validator": "^6.0.0"
+    "socket.io-client": "^1.5.1",
+    "validator": "^6.0.0",
+    "wikipedia-js": "0.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mahdimeraji07/xte.git"
   }
 }

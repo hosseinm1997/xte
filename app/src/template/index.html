@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='xte'>
+	<head>
+		<title id='title'>xte messenger |</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="favicon.png">
+		<!-- inline -->
+		<link rel='stylesheet' type='text/css' href='../dist/style-min.css' inline >
+		<!-- inline style -->
+	</head>
+	<body ng-controller='app_ctrl as app'>
+		<ng-view ng-cloak><!-- Pages load here --></ng-view>
+		<div id='splash' ng-class='splash' />
+			<img id='splash_img' src='splash.gif' >
+			<p id='splash_txt' ng-cloak>{{splash_text}}</p>
+			<p id='splash_txt' ng-show>Loading ...</p>
+		</div>
+		<script type="text/javascript">
+			var titlebar = document.getElementById('title'), b;
+			setInterval(function(){
+				if(b)  { b = 0; titlebar.innerHTML = 'xte messenger |'
+				} else { b = 1; titlebar.innerHTML = 'xte messenger  ' }}, 570);
+		</script>
+	</body>
+	<!-- inline -->
+	<script type='text/javascript' src='../dist/script-min.js' inline ></script>
+	<!-- inline script -->
+</html>

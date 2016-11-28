@@ -36,7 +36,7 @@ describe('System', () => {
 		it('it should not login a user if fullname was alrady registred', (done) => {
 			chai.request(server)
 			.post('/login')
-			.send({fullname:'Mohammad Mahdi'})
+			.send({fullname:'online'})
 			.end((error, request) => {
 				request.should.have.status(200);
 				request.body.status.should.be.eql(2);

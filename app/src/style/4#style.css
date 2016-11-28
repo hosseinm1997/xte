@@ -1,5 +1,5 @@
 @font-face { font-family: lato; src: url(Lato-Light.ttf); }
-/*@font-face { font-family: lato-light; src: url(Lato-Hairline.ttf); }*/
+@font-face { font-family: lato-light; src: url(Lato-Hairline.ttf); }
 
 * { margin: 0; padding: 0; }
 html, html > body { height: 100%; }
