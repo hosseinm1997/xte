@@ -1,6 +1,2 @@
-<<<<<<< HEAD
-XTE, extereme text based messenge
+XTE MESSENGER
 =======
-# xte
-An extreme text based messenger
->>>>>>> origin/master
